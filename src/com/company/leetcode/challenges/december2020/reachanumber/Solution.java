@@ -1,4 +1,4 @@
-package com.company.leetcode.december2020.reachanumber;
+package com.company.leetcode.challenges.december2020.reachanumber;
 
 public class Solution {
 

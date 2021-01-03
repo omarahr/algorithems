@@ -1,4 +1,4 @@
-package com.company.leetcode.december2020.nearestridenode;
+package com.company.leetcode.challenges.december2020.nearestridenode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

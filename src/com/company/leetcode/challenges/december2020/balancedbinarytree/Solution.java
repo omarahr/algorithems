@@ -1,4 +1,4 @@
-package com.company.leetcode.december2020.balancedbinarytree;
+package com.company.leetcode.challenges.december2020.balancedbinarytree;
 
 public class Solution {
 

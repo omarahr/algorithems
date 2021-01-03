@@ -1,4 +1,4 @@
-package com.company.leetcode.december2020.jumpiv;
+package com.company.leetcode.challenges.december2020.jumpiv;
 
 import java.util.*;
 
