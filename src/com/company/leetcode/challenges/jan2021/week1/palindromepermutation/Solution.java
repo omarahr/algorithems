@@ -1,4 +1,4 @@
-package com.company.leetcode.challenges.jan2021.palindromepermutation;
+package com.company.leetcode.challenges.jan2021.week1.palindromepermutation;
 
 public class Solution {
 

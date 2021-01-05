@@ -1,4 +1,4 @@
-package com.company.leetcode.challenges.jan2021.beautifularrangement;
+package com.company.leetcode.challenges.jan2021.week1.beautifularrangement;
 
 public class Solution {
 

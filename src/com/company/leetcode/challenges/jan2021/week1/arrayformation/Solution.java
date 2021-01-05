@@ -1,4 +1,4 @@
-package com.company.leetcode.challenges.jan2021.arrayformation;
+package com.company.leetcode.challenges.jan2021.week1.arrayformation;
 
 import java.util.HashMap;
 import java.util.HashSet;

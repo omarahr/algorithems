@@ -1,4 +1,4 @@
-package com.company.leetcode.challenges.jan2021.mergetwosortedlists;
+package com.company.leetcode.challenges.jan2021.week1.mergetwosortedlists;
 
 public class Solution {
 

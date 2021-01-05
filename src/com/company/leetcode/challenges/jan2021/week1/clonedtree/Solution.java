@@ -1,4 +1,4 @@
-package com.company.leetcode.challenges.jan2021.clonedtree;
+package com.company.leetcode.challenges.jan2021.week1.clonedtree;
 
 import java.util.ArrayList;
 import java.util.List;
