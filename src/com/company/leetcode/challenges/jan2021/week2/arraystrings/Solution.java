@@ -2,17 +2,12 @@ package com.company.leetcode.challenges.jan2021.week2.arraystrings;
 
 public class Solution {
 
-    /*
-
-    ["ecxarwyyy","ppf","tdyayjd"]
-["ecxarwyyyppft","dyayj","q"]
-     */
     public static void main(String[] args) {
         Solution solution = new Solution();
 
         System.out.println(solution.arrayStringsAreEqual(new String[]{"ecxarwyyy","ppf","tdyayjd"}, new String[]{"ecxarwyyyppft","dyayj","q"}));
-//        System.out.println(solution.arrayStringsAreEqual(new String[]{"a", "cb"}, new String[]{"ab", "c"}));
-//        System.out.println(solution.arrayStringsAreEqual(new String[]{"abc", "d", "defg"}, new String[]{"abcddefg"}));
+        System.out.println(solution.arrayStringsAreEqual(new String[]{"a", "cb"}, new String[]{"ab", "c"}));
+        System.out.println(solution.arrayStringsAreEqual(new String[]{"abc", "d", "defg"}, new String[]{"abcddefg"}));
     }
 
     public static class StringArray {
