@@ -24,7 +24,7 @@ public class Solution {
         Queue<Integer> queue = new LinkedList<>();
 
 
-        for (int x = 0; x < n; x ++) {
+        for (int x = 0; x < n; x++) {
             if (colors[x] != NOT_COLORED) {
                 continue;
             }
