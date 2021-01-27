@@ -14,11 +14,11 @@ public class Solution {
         long result = 0;
         long position = 1;
         for (int i = binary.length - 1; i >= 0; i--) {
-            result += binary[i] == '1' ?  position % modulo: 0;
+            result += binary[i] == '1' ? position % modulo : 0;
             position = ((position % modulo) * 2) % modulo;
         }
 
-        return (int)(result % (modulo));
+        return (int) (result % (modulo));
     }
 
 
