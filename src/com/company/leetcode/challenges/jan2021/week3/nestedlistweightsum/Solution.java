@@ -3,6 +3,25 @@ package com.company.leetcode.challenges.jan2021.week3.nestedlistweightsum;
 import java.util.List;
 
 public class Solution {
+    public int depthSum(List<NestedInteger> nestedList) {
+        return depthSum(nestedList, 1);
+    }
+
+    public int depthSum(List<NestedInteger> nestedList, int depth) {
+
+        int sum = 0;
+
+        for (NestedInteger nestedInteger : nestedList) {
+            if (nestedInteger.isInteger()) {
+                sum += (depth * nestedInteger.getInteger());
+            } else {
+                sum += depthSum(nestedInteger.getList(), depth + 1);
+            }
+        }
+
+        return sum;
+    }
+
     /**
      * // This is the interface that allows for creating nested lists.
      * // You should not implement it, or speculate about its implementation
@@ -42,24 +61,5 @@ public class Solution {
         void add(NestedInteger ni);
 
         List<NestedInteger> getList();
-    }
-
-    public int depthSum(List<NestedInteger> nestedList) {
-        return depthSum(nestedList, 1);
-    }
-
-    public int depthSum(List<NestedInteger> nestedList, int depth) {
-
-        int sum = 0;
-
-        for (NestedInteger nestedInteger : nestedList) {
-            if (nestedInteger.isInteger()) {
-                sum += (depth * nestedInteger.getInteger());
-            } else {
-                sum += depthSum(nestedInteger.getList(), depth + 1);
-            }
-        }
-
-        return sum;
     }
 }

@@ -28,7 +28,7 @@ public class Solution {
     public static void main(String[] args) {
         Solution solution = new Solution();
         int[] arr = new int[]{1, 3, 5, 7};
-        int[][] pieces = new int[][] {
+        int[][] pieces = new int[][]{
                 new int[]{78},
                 new int[]{4, 64},
                 new int[]{91},

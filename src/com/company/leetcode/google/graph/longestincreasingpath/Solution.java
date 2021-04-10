@@ -2,21 +2,21 @@ package com.company.leetcode.google.graph.longestincreasingpath;
 
 public class Solution {
 
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        int result = solution.longestIncreasingPath(new int[][]{
-           new int[]{9,9,4},
-           new int[]{6,6,8},
-           new int[]{2,1,1}
-        });
-        System.out.print(result);
-    }
-
-    private static int[] xs= new int[]{0, 0, 1, -1};
-    private static int[] ys= new int[]{1, -1, 0, 0};
+    private static int[] xs = new int[]{0, 0, 1, -1};
+    private static int[] ys = new int[]{1, -1, 0, 0};
     private static int maxLen, width, height;
     private static int[][] dp;
     private static boolean[][] visited;
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int result = solution.longestIncreasingPath(new int[][]{
+                new int[]{9, 9, 4},
+                new int[]{6, 6, 8},
+                new int[]{2, 1, 1}
+        });
+        System.out.print(result);
+    }
 
     public int longestIncreasingPath(int[][] matrix) {
         height = matrix.length;
@@ -27,7 +27,7 @@ public class Solution {
         dp = new int[height][width];
         visited = new boolean[height][width];
 
-        for (int i =  0; i < height; i++)
+        for (int i = 0; i < height; i++)
             for (int j = 0; j < width; j++) {
                 dp[i][j] = -1;
                 visited[i][j] = false;

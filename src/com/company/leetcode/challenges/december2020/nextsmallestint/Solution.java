@@ -15,7 +15,7 @@ public class Solution {
     }
 
     public int nextGreaterElement(int n) {
-        char[] arr = (n+"").toCharArray();
+        char[] arr = (n + "").toCharArray();
 
         if (arr.length <= 1)
             return -1;
@@ -50,7 +50,7 @@ public class Solution {
 
         // convert to int
         StringBuilder sb = new StringBuilder();
-        for(char x : arr) sb.append(x);
+        for (char x : arr) sb.append(x);
 
         long result = Long.parseLong(sb.toString());
 

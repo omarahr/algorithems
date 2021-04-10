@@ -2,6 +2,22 @@ package com.company.leetcode.challenges.december2020.balancedbinarytree;
 
 public class Solution {
 
+    public static void main(String[] args) {
+        TreeNode a = new TreeNode();
+        TreeNode b = new TreeNode();
+        TreeNode c = new TreeNode();
+        TreeNode d = new TreeNode();
+        TreeNode e = new TreeNode();
+
+        a.left = b;
+        b.right = c;
+        c.left = d;
+        d.right = e;
+
+        Solution solution = new Solution();
+        System.out.println(solution.isBalanced(a));
+    }
+
     public boolean isBalanced(TreeNode root) {
         if (root == null)
             return true;
@@ -19,27 +35,6 @@ public class Solution {
 
         return 1 + Math.max(leftHeight, rightHeight);
     }
-
-
-    public static void main(String[] args) {
-        TreeNode a = new TreeNode();
-        TreeNode b = new TreeNode();
-        TreeNode c = new TreeNode();
-        TreeNode d = new TreeNode();
-        TreeNode e = new TreeNode();
-
-        a.left = b;
-        b.right = c;
-        c.left = d;
-        d.right = e;
-
-        Solution solution = new Solution();
-        System.out.println(solution.isBalanced(a));
-    }
-
-
-
-
 
     public static class TreeNode {
         int val;

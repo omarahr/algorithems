@@ -3,32 +3,16 @@ package com.company.leetcode.facebook.graphs.binarytreeverticalorder;
 import java.util.*;
 
 public class Solution {
-    public static class TreeNode {
-        int val;
-        TreeNode left, right;
-
-        public TreeNode() {
-        }
-
-        public TreeNode(int val) {
-            this.val = val;
-        }
-
-        public TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
-
-
-    public static class Column {
-        int index;
-        List<Integer> items;
-
-        public Column(int index) {
-            this.index = index;
-            items = new ArrayList<>();
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(3, new TreeNode(9),
+                new TreeNode(20, new TreeNode(15), new TreeNode(7)));
+        Solution solution = new Solution();
+        List<List<Integer>> result = solution.verticalOrder(root);
+        for (List<Integer> col : result) {
+            for (int item : col) {
+                System.out.print(item + " ");
+            }
+            System.out.println();
         }
     }
 
@@ -67,24 +51,38 @@ public class Solution {
         columns.sort(Comparator.comparingInt(o -> o.index));
 
         List<List<Integer>> result = new ArrayList<>();
-        for (Column column: columns) {
+        for (Column column : columns) {
             result.add(column.items);
         }
 
         return result;
     }
 
+    public static class TreeNode {
+        int val;
+        TreeNode left, right;
 
-    public static void main(String[] args) {
-        TreeNode root = new TreeNode(3, new TreeNode(9),
-                new TreeNode(20, new TreeNode(15), new TreeNode(7)));
-        Solution solution = new Solution();
-        List<List<Integer>> result = solution.verticalOrder(root);
-        for (List<Integer> col : result) {
-            for(int item : col) {
-                System.out.print(item +" ");
-            }
-            System.out.println();
+        public TreeNode() {
+        }
+
+        public TreeNode(int val) {
+            this.val = val;
+        }
+
+        public TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+
+    public static class Column {
+        int index;
+        List<Integer> items;
+
+        public Column(int index) {
+            this.index = index;
+            items = new ArrayList<>();
         }
     }
 }

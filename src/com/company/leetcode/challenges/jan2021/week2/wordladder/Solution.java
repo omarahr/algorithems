@@ -6,8 +6,8 @@ public class Solution {
     public static void main(String[] args) {
         Solution solution = new Solution();
 
-        System.out.println(solution.ladderLength("hit", "cog", Arrays.asList("hot","dot","dog","lot","log","cog")));
-        System.out.println(solution.ladderLength("hit", "cog", Arrays.asList("hot","dot","dog","lot","log")));
+        System.out.println(solution.ladderLength("hit", "cog", Arrays.asList("hot", "dot", "dog", "lot", "log", "cog")));
+        System.out.println(solution.ladderLength("hit", "cog", Arrays.asList("hot", "dot", "dog", "lot", "log")));
     }
 
 

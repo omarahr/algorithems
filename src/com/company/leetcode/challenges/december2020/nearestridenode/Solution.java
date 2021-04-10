@@ -7,6 +7,10 @@ import java.util.Queue;
 
 public class Solution {
 
+    public static void main(String[] args) {
+
+    }
+
     public TreeNode findNearestRightNode(TreeNode root, TreeNode u) {
 
         // get node level
@@ -67,10 +71,6 @@ public class Solution {
         return levelFromLeft == null ? levelFromRight : levelFromLeft;
     }
 
-
-
-
-
     public static class TreeNode {
         int val;
         TreeNode left, right;
@@ -87,9 +87,5 @@ public class Solution {
         public TreeNode(int val) {
             this.val = val;
         }
-    }
-
-    public static void main(String[] args) {
-
     }
 }

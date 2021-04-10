@@ -17,7 +17,7 @@ public class A {
             for (int i = 0; i < size; i++) {
                 if (rCards[i] > bCards[i]) {
                     counter++;
-                } else if(rCards[i] < bCards[i]) {
+                } else if (rCards[i] < bCards[i]) {
                     counter--;
                 }
             }
@@ -35,7 +35,6 @@ public class A {
         br.close();
         pw.close();
     }
-
 
 
 }

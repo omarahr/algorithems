@@ -28,7 +28,7 @@ public class Solution {
             ArrayList<Integer> permutation = new ArrayList<>();
             Arrays.stream(nums).forEach(permutation::add);
             String arrStr = permutation.toString();
-            if (!set.contains(arrStr)){
+            if (!set.contains(arrStr)) {
                 set.add(arrStr);
                 results.add(permutation);
             }

@@ -4,27 +4,29 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class Solution {
+    private int[] x = new int[]{1, 0, 0, -1};
+    private int[] y = new int[]{0, 1, -1, 0};
+
     public static void main(String[] args) {
         Solution solution = new Solution();
         System.out.println(solution.minimumEffortPath(new int[][]{
-                new int[]{1,2,2},
-                new int[]{3,8,2},
-                new int[]{5,3,5},
+                new int[]{1, 2, 2},
+                new int[]{3, 8, 2},
+                new int[]{5, 3, 5},
         }));
         System.out.println(solution.minimumEffortPath(new int[][]{
-                new int[]{1,2,3},
-                new int[]{3,8,4},
-                new int[]{5,3,5},
+                new int[]{1, 2, 3},
+                new int[]{3, 8, 4},
+                new int[]{5, 3, 5},
         }));
         System.out.println(solution.minimumEffortPath(new int[][]{
-                new int[]{1,2,1,1,1},
-                new int[]{1,2,1,2,1},
-                new int[]{1,2,1,2,1},
-                new int[]{1,2,1,2,1},
-                new int[]{1,1,1,2,1},
+                new int[]{1, 2, 1, 1, 1},
+                new int[]{1, 2, 1, 2, 1},
+                new int[]{1, 2, 1, 2, 1},
+                new int[]{1, 2, 1, 2, 1},
+                new int[]{1, 1, 1, 2, 1},
         }));
     }
-
 
     public int minimumEffortPath(int[][] heights) {
         int rows = heights.length;
@@ -62,9 +64,6 @@ public class Solution {
 
         return 0;
     }
-
-    private int[] x = new int[]{1, 0, 0, -1};
-    private int[] y = new int[]{0, 1, -1, 0};
 
     public static class Point {
         public int row, col, maxEffort;

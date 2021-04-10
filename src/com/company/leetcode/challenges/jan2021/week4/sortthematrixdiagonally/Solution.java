@@ -1,18 +1,18 @@
 package com.company.leetcode.challenges.jan2021.week4.sortthematrixdiagonally;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Solution {
     public static void main(String[] args) {
         Solution solution = new Solution();
         solution.diagonalSort(new int[][]{
-                new int[]{3,3,1,1},
-                new int[]{2,2,1,2},
-                new int[]{1,1,1,2},
+                new int[]{3, 3, 1, 1},
+                new int[]{2, 2, 1, 2},
+                new int[]{1, 1, 1, 2},
         });
     }
-
-
 
 
     public int[][] diagonalSort(int[][] mat) {
@@ -45,13 +45,13 @@ public class Solution {
             col++;
         }
         /** print to check the correctness
-        for (int i = 0; i < size; i++) {
-            for (int x : lists.get(i)) {
-                System.out.print(x+" , ");
-            }
-            System.out.println();
-        }
-        */
+         for (int i = 0; i < size; i++) {
+         for (int x : lists.get(i)) {
+         System.out.print(x+" , ");
+         }
+         System.out.println();
+         }
+         */
 
         for (List<Integer> x : lists) {
             Collections.sort(x);
@@ -73,16 +73,16 @@ public class Solution {
         while (index < size) {
             List<Integer> items = lists.get(index);
             for (int i = 0, j = col, k = 0; i < m && j < n; i++, j++, k++) {
-                mat[i][j]  = items.get(k);
+                mat[i][j] = items.get(k);
             }
             index++;
             col++;
         }
 
         /**
-        for (int i = 0; i < m; i++) {
-            System.out.println(Arrays.toString(mat[i]));
-        }
+         for (int i = 0; i < m; i++) {
+         System.out.println(Arrays.toString(mat[i]));
+         }
          */
 
         return mat;

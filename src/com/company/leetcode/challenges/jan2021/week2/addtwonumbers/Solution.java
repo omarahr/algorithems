@@ -16,30 +16,13 @@ public class Solution {
         }
     }
 
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        public ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-
-        public ListNode(int val) {
-            this.val = val;
-        }
-
-        public ListNode() {
-        }
-    }
-
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode head = new ListNode();
 
         ListNode prev = head;
         int rem = 0;
 
-        while (l1 != null && l2!= null) {
+        while (l1 != null && l2 != null) {
             int sum = l1.val + l2.val + rem;
             int val = sum % 10;
             rem = sum / 10;
@@ -80,5 +63,22 @@ public class Solution {
 
 
         return head.next;
+    }
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+
+        public ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
+
+        public ListNode(int val) {
+            this.val = val;
+        }
+
+        public ListNode() {
+        }
     }
 }

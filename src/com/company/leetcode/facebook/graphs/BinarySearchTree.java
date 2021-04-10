@@ -3,22 +3,24 @@ package com.company.leetcode.facebook.graphs;
 import java.util.*;
 
 public class BinarySearchTree {
-    public static class Node {
-        public int val;
-        public Node left;
-        public Node right;
+    /*
+    [["David","David0@m.co","David1@m.co"],["David","David3@m.co","David4@m.co"],["David","David4@m.co","David5@m.co"],["David","David2@m.co","David3@m.co"],["David","David1@m.co","David2@m.co"]]
 
-        public Node() {}
+    [["David","David0@m.co","David1@m.co","David2@m.co"],["David","David2@m.co","David3@m.co","David4@m.co","David5@m.co"]]
 
-        public Node(int _val) {
-            val = _val;
-        }
+    [["David","David0@m.co","David1@m.co","David2@m.co","David3@m.co","David4@m.co","David5@m.co"]]
+     */
+    public static void main(String[] args) {
+        List<List<String>> accounts = new ArrayList<>();
+        accounts.add(Arrays.asList("David", "David0@m.co", "David1@m.co"));
+        accounts.add(Arrays.asList("David", "David3@m.co", "David4@m.co"));
+        accounts.add(Arrays.asList("David", "David4@m.co", "David5@m.co"));
+        accounts.add(Arrays.asList("David", "David2@m.co", "David3@m.co"));
+        accounts.add(Arrays.asList("David", "David1@m.co", "David2@m.co"));
 
-        public Node(int _val,Node _left,Node _right) {
-            val = _val;
-            left = _left;
-            right = _right;
-        }
+        BinarySearchTree main = new BinarySearchTree();
+
+        System.out.println(Arrays.toString(main.accountsMerge(accounts).toArray()));
     }
 
     public Node treeToDoublyList(Node root) {
@@ -30,7 +32,7 @@ public class BinarySearchTree {
 
         for (int i = 0; i < orderedNodes.size() - 1; i++) {
             Node from = orderedNodes.get(i);
-            Node to = orderedNodes.get(i+1);
+            Node to = orderedNodes.get(i + 1);
             from.right = to;
             to.left = from;
         }
@@ -53,50 +55,6 @@ public class BinarySearchTree {
         inOrderTraversal(root.right, orderedNodes);
     }
 
-    /*
-    [["David","David0@m.co","David1@m.co"],["David","David3@m.co","David4@m.co"],["David","David4@m.co","David5@m.co"],["David","David2@m.co","David3@m.co"],["David","David1@m.co","David2@m.co"]]
-
-    [["David","David0@m.co","David1@m.co","David2@m.co"],["David","David2@m.co","David3@m.co","David4@m.co","David5@m.co"]]
-
-    [["David","David0@m.co","David1@m.co","David2@m.co","David3@m.co","David4@m.co","David5@m.co"]]
-     */
-    public static void main(String[] args) {
-        List<List<String>> accounts = new ArrayList<>();
-        accounts.add(Arrays.asList("David","David0@m.co","David1@m.co"));
-        accounts.add(Arrays.asList("David","David3@m.co","David4@m.co"));
-        accounts.add(Arrays.asList("David","David4@m.co","David5@m.co"));
-        accounts.add(Arrays.asList("David","David2@m.co","David3@m.co"));
-        accounts.add(Arrays.asList("David","David1@m.co","David2@m.co"));
-
-        BinarySearchTree main = new BinarySearchTree();
-
-        System.out.println(Arrays.toString(main.accountsMerge(accounts).toArray()));
-    }
-
-
-    public static class DisjointSet {
-        int[] parent;
-
-        DisjointSet(int size) {
-            parent = new int[size];
-            for(int i = 0; i < size; i++) parent[i] = i;
-        }
-
-        int find(int x) {
-            if (parent[x] == x)
-                return x;
-
-            return parent[x] = find(parent[x]);
-        }
-
-        void union(int a, int b) {
-            parent[find(a)] = parent[find(b)];
-        }
-
-
-    }
-
-
     public List<List<String>> accountsMerge(List<List<String>> accounts) {
         int accountsSize = accounts.size();
 
@@ -114,7 +72,7 @@ public class BinarySearchTree {
 
         List<List<List<String>>> groups = new ArrayList<>();
         for (int i = 0; i < accountsSize; i++) groups.add(new ArrayList<>());
-        for (int i = 0; i <accountsSize; i++) groups.get(set.find(i)).add(accounts.get(i));
+        for (int i = 0; i < accountsSize; i++) groups.get(set.find(i)).add(accounts.get(i));
 
 
         List<List<String>> mergedAccounts = new ArrayList<>();
@@ -144,7 +102,7 @@ public class BinarySearchTree {
 
     private List<String> merge(List<List<String>> group) {
         HashSet<String> emails = new HashSet<>();
-        for (List<String> item: group)
+        for (List<String> item : group)
             for (int i = 1; i < item.size(); i++)
                 emails.add(item.get(i));
 
@@ -154,5 +112,46 @@ public class BinarySearchTree {
         Collections.sort(mergedGroup);
         mergedGroup.add(0, name);
         return mergedGroup;
+    }
+
+    public static class Node {
+        public int val;
+        public Node left;
+        public Node right;
+
+        public Node() {
+        }
+
+        public Node(int _val) {
+            val = _val;
+        }
+
+        public Node(int _val, Node _left, Node _right) {
+            val = _val;
+            left = _left;
+            right = _right;
+        }
+    }
+
+    public static class DisjointSet {
+        int[] parent;
+
+        DisjointSet(int size) {
+            parent = new int[size];
+            for (int i = 0; i < size; i++) parent[i] = i;
+        }
+
+        int find(int x) {
+            if (parent[x] == x)
+                return x;
+
+            return parent[x] = find(parent[x]);
+        }
+
+        void union(int a, int b) {
+            parent[find(a)] = parent[find(b)];
+        }
+
+
     }
 }

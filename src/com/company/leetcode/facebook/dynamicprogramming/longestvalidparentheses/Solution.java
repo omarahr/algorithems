@@ -17,13 +17,13 @@ public class Solution {
 
         for (int i = 1; i < str.length; i++) {
             if (str[i] == closing) {
-                if (str[i-1] == opening) {
+                if (str[i - 1] == opening) {
                     dp[i] = i < 2 ? 2 : dp[i - 2] + 2;
                 } else {
                     if (i - dp[i - 1] > 0 && str[i - dp[i - 1] - 1] == opening) {
-                        dp[i] = dp[i-1] + 2;
+                        dp[i] = dp[i - 1] + 2;
 
-                        if (i - dp[i-1] - 2 > 0) dp[i]+= dp[i - dp[i-1] - 2];
+                        if (i - dp[i - 1] - 2 > 0) dp[i] += dp[i - dp[i - 1] - 2];
                     }
                 }
             }

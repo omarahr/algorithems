@@ -24,7 +24,7 @@ public class Solution {
                     return false;
 
                 char peek = stack.peek();
-                if(isMatching(peek, letter)) {
+                if (isMatching(peek, letter)) {
                     stack.pop();
                 } else {
                     return false;

@@ -3,13 +3,13 @@ package com.company.leetcode.challenges.jan2021.week3.countsortedvowelstrings;
 import java.util.Arrays;
 
 public class Solution {
+    int[][] dp;
+
     public static void main(String[] args) {
         Solution solution = new Solution();
         System.out.println(solution.countVowelStrings(2));
         System.out.println(solution.countVowelStrings(50));
     }
-
-    int[][] dp;
 
     public int countVowelStrings(int n) {
         int sum = 0;
@@ -30,7 +30,7 @@ public class Solution {
             return dp[index][prev];
 
         int sum = 0;
-        for(int i = prev; i < 5; i++) {
+        for (int i = prev; i < 5; i++) {
             sum += countVowelStrings(index + 1, i, n);
         }
 

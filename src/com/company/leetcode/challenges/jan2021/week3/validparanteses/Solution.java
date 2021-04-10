@@ -4,13 +4,23 @@ import java.util.Stack;
 
 public class Solution {
 
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+
+        System.out.println(solution.isValid("()"));
+        System.out.println(solution.isValid("()[]{}"));
+        System.out.println(solution.isValid("(]"));
+        System.out.println(solution.isValid("([)]"));
+        System.out.println(solution.isValid("{[]}"));
+    }
+
     public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
 
         for (char x : s.toCharArray()) {
             if (isOpening(x)) {
                 stack.add(x);
-            } else if (stack.isEmpty()){
+            } else if (stack.isEmpty()) {
                 return false;
             } else {
                 boolean match = matches(stack.pop(), x);
@@ -30,16 +40,5 @@ public class Solution {
 
     private boolean isOpening(char x) {
         return x == '(' || x == '{' || x == '[';
-    }
-
-
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-
-        System.out.println(solution.isValid("()"));
-        System.out.println(solution.isValid("()[]{}"));
-        System.out.println(solution.isValid("(]"));
-        System.out.println(solution.isValid("([)]"));
-        System.out.println(solution.isValid("{[]}"));
     }
 }

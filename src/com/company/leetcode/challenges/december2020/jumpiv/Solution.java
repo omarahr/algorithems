@@ -1,21 +1,16 @@
 package com.company.leetcode.challenges.december2020.jumpiv;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 public class Solution {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        int[] arr = new int[] {1, 1,1, 1, 1, 1, 404};
+        int[] arr = new int[]{1, 1, 1, 1, 1, 1, 404};
         System.out.println(solution.minJumps(arr));
-    }
-
-    public static class TreeNode {
-        int val;
-        TreeNode left, right;
-
-        TreeNode(){}
-        TreeNode(int val) {this.val = val;}
     }
 
     private int bfs(HashMap<Integer, List<Integer>> graph, int[] arr) {
@@ -39,7 +34,7 @@ public class Solution {
                 next.add(currentIndex - 1);
 
                 for (int connectedNodeIndex : graph.get(arr[currentIndex])) {
-                    if (connectedNodeIndex >= 0 && connectedNodeIndex < arr.length && !visited[connectedNodeIndex]){
+                    if (connectedNodeIndex >= 0 && connectedNodeIndex < arr.length && !visited[connectedNodeIndex]) {
                         queue.offer(connectedNodeIndex);
                         visited[connectedNodeIndex] = true;
                     }
@@ -62,6 +57,18 @@ public class Solution {
             valueToIndexMap.computeIfAbsent(arr[i], x -> new LinkedList<>()).add(i);
 
         return bfs(valueToIndexMap, arr);
+    }
+
+    public static class TreeNode {
+        int val;
+        TreeNode left, right;
+
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
     }
 
 }

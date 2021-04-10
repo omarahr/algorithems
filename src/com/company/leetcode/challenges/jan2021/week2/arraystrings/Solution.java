@@ -5,9 +5,22 @@ public class Solution {
     public static void main(String[] args) {
         Solution solution = new Solution();
 
-        System.out.println(solution.arrayStringsAreEqual(new String[]{"ecxarwyyy","ppf","tdyayjd"}, new String[]{"ecxarwyyyppft","dyayj","q"}));
+        System.out.println(solution.arrayStringsAreEqual(new String[]{"ecxarwyyy", "ppf", "tdyayjd"}, new String[]{"ecxarwyyyppft", "dyayj", "q"}));
         System.out.println(solution.arrayStringsAreEqual(new String[]{"a", "cb"}, new String[]{"ab", "c"}));
         System.out.println(solution.arrayStringsAreEqual(new String[]{"abc", "d", "defg"}, new String[]{"abcddefg"}));
+    }
+
+    public boolean arrayStringsAreEqual(String[] word1, String[] word2) {
+        StringArray s1 = new StringArray(word1);
+        StringArray s2 = new StringArray(word2);
+
+        while (s1.hasNext() && s2.hasNext()) {
+            if (s1.getNext() != s2.getNext()) {
+                return false;
+            }
+        }
+
+        return !s1.hasNext() && !s2.hasNext();
     }
 
     public static class StringArray {
@@ -46,19 +59,6 @@ public class Solution {
                 index2++;
             }
         }
-    }
-
-    public boolean arrayStringsAreEqual(String[] word1, String[] word2) {
-        StringArray s1 = new StringArray(word1);
-        StringArray s2 = new StringArray(word2);
-
-        while(s1.hasNext() && s2.hasNext()) {
-            if (s1.getNext() != s2.getNext()) {
-                return false;
-            }
-        }
-
-        return !s1.hasNext() && !s2.hasNext();
     }
 
 }

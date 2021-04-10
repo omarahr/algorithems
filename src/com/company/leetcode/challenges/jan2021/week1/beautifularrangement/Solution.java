@@ -2,13 +2,13 @@ package com.company.leetcode.challenges.jan2021.week1.beautifularrangement;
 
 public class Solution {
 
+    private static int count;
+
     public static void main(String[] args) {
         Solution solution = new Solution();
         System.out.println(solution.countArrangement(15));
     }
 
-
-    private static int count;
     public int countArrangement(int n) {
         count = 0;
         countArrangement(1, new boolean[n + 1]);

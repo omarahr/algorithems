@@ -46,9 +46,11 @@ public class Solution {
             children = new ArrayList<Node>();
         }
 
-        public Node(int _val,ArrayList<Node> _children) {
+        public Node(int _val, ArrayList<Node> _children) {
             val = _val;
             children = _children;
         }
-    };
+    }
+
+    ;
 }

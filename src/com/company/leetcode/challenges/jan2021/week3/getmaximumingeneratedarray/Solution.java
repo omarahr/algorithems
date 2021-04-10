@@ -19,11 +19,11 @@ public class Solution {
         if (n == 1)
             return 1;
 
-        int[] values = new int[n+1];
+        int[] values = new int[n + 1];
         values[0] = 0;
         values[1] = 1;
         for (int i = 2; i <= n; i++) {
-            values[i] = i % 2 == 0 ? values[i/2] : values[i/2] + values[(i/2)+1];
+            values[i] = i % 2 == 0 ? values[i / 2] : values[i / 2] + values[(i / 2) + 1];
             max = Math.max(max, values[i]);
         }
 

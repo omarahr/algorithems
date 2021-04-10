@@ -10,7 +10,7 @@ public class Solution {
     public static void main(String[] args) {
         Solution solution = new Solution();
         List<String> result = solution.removeInvalidParentheses(")(");
-        for (String str: result) {
+        for (String str : result) {
             System.out.println(str);
         }
     }
@@ -30,7 +30,7 @@ public class Solution {
         if (len == current.length) {
             if (isValid(current)) {
                 StringBuilder stringBuilder = new StringBuilder();
-                for(char c : current) stringBuilder.append(c);
+                for (char c : current) stringBuilder.append(c);
                 String arrStr = stringBuilder.toString();
                 if (!set.contains(arrStr)) {
                     set.add(arrStr);

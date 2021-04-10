@@ -7,20 +7,20 @@ public class Solution {
         String input = "The quick brown fox jumps over the lazy dog";
         int K = 39;
         String result = solution.solution(input, K);
-        System.out.println("*"+result+"*");
+        System.out.println("*" + result + "*");
     }
 
     public String solution(String message, int K) {
         char[] msgArr = message.toCharArray();
 
-        if(K >= message.length()){
+        if (K >= message.length()) {
             return message;
         }
 
         int lastIndex = K - 1;
 
         if (msgArr[K] != ' ') {
-            while(lastIndex >= 0 && msgArr[lastIndex] != ' ') {
+            while (lastIndex >= 0 && msgArr[lastIndex] != ' ') {
                 lastIndex--;
             }
         } else {
@@ -28,12 +28,12 @@ public class Solution {
         }
 
         boolean noWordsRemained = lastIndex == -1;
-        if(noWordsRemained) {
+        if (noWordsRemained) {
             return "";
         }
 
         StringBuilder stringBuilder = new StringBuilder();
-        for(int i = 0; i < lastIndex; i++) {
+        for (int i = 0; i < lastIndex; i++) {
             stringBuilder.append(msgArr[i]);
         }
 

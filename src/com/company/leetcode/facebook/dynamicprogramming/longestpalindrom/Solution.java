@@ -2,6 +2,12 @@ package com.company.leetcode.facebook.dynamicprogramming.longestpalindrom;
 
 public class Solution {
 
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.longestPalindrome("babad"));
+        System.out.println(solution.longestPalindrome("cbbd"));
+    }
+
     public String longestPalindrome(String s) {
         if (s == null || s.length() == 0)
             return "";
@@ -15,8 +21,8 @@ public class Solution {
 
             int len = Math.max(evenLen, oddLen);
             if (len > end - start) {
-                start = i - ((len - 1) /2);
-                end = i + (len/2);
+                start = i - ((len - 1) / 2);
+                end = i + (len / 2);
             }
         }
 
@@ -33,15 +39,5 @@ public class Solution {
         }
 
         return end - start - 1;
-    }
-
-
-
-
-
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        System.out.println(solution.longestPalindrome("babad"));
-        System.out.println(solution.longestPalindrome("cbbd"));
     }
 }

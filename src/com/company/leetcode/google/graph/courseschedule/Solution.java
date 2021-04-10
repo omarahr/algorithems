@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Solution {
     public static void main(String[] args) {
-        int[] result = findOrder(1, new int[][] {});
+        int[] result = findOrder(1, new int[][]{});
         System.out.print(Arrays.toString(result));
     }
 

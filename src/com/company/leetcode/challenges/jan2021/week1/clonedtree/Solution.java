@@ -28,32 +28,6 @@ public class Solution {
         System.out.println(answer);
 
     }
-    public static class TreeNode {
-        int val;
-        TreeNode left, right;
-        public TreeNode(int val) {
-            this.val = val;
-        }
-
-        @Override
-        public String toString() {
-            return "TreeNode{" +
-                    "val=" + val +
-                    ", left=" + left +
-                    ", right=" + right +
-                    '}';
-        }
-    }
-
-    public enum Direction {
-        LEFT (-1),
-        RIGHT(1);
-
-        private final int dirCode;
-        Direction(int dirCode) {
-            this.dirCode = dirCode;
-        }
-    }
 
     public final TreeNode getTargetCopy(final TreeNode original, final TreeNode cloned, final TreeNode target) {
         List<Direction> directions = new ArrayList<>();
@@ -93,6 +67,35 @@ public class Solution {
 
         directions.remove(directions.size() - 1);
         return false;
+    }
+
+    public enum Direction {
+        LEFT(-1),
+        RIGHT(1);
+
+        private final int dirCode;
+
+        Direction(int dirCode) {
+            this.dirCode = dirCode;
+        }
+    }
+
+    public static class TreeNode {
+        int val;
+        TreeNode left, right;
+
+        public TreeNode(int val) {
+            this.val = val;
+        }
+
+        @Override
+        public String toString() {
+            return "TreeNode{" +
+                    "val=" + val +
+                    ", left=" + left +
+                    ", right=" + right +
+                    '}';
+        }
     }
 
 

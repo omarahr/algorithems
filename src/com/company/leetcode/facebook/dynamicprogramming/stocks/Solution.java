@@ -3,8 +3,8 @@ package com.company.leetcode.facebook.dynamicprogramming.stocks;
 public class Solution {
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(solution.maxProfit(new int[]{7,1,5,3,6,4}));
-        System.out.println(solution.maxProfit(new int[]{7,6,4,3,1}));
+        System.out.println(solution.maxProfit(new int[]{7, 1, 5, 3, 6, 4}));
+        System.out.println(solution.maxProfit(new int[]{7, 6, 4, 3, 1}));
     }
 
 
@@ -32,7 +32,7 @@ public class Solution {
 
         buy[0] = prices[0];
         for (int i = 1; i < prices.length; i++)
-            buy[i] = Math.min(prices[i], buy[i-1]);
+            buy[i] = Math.min(prices[i], buy[i - 1]);
 
         sell[n - 1] = prices[n - 1];
         for (int j = n - 2; j >= 0; j--)

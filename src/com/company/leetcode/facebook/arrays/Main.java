@@ -6,6 +6,8 @@ import java.util.regex.Pattern;
 
 public class Main {
 
+    Queue<Character> buffer = new LinkedList<>();
+
     public static void main(String[] args) {
         Main main = new Main();
         System.out.println(main.addBinary("1010", "1011"));
@@ -18,7 +20,7 @@ public class Main {
 
         int maxLength = 0;
         int pointer = 0;
-        for(int i = 0; i < letters.length; i++) {
+        for (int i = 0; i < letters.length; i++) {
             int lastIndex = index[letters[i]];
             index[letters[i]] = i;
             if (lastIndex != -1 && lastIndex >= pointer) {
@@ -47,33 +49,11 @@ public class Main {
                 if (nonZeroPointer < nums.length) {
                     int temp = nums[zeroPointer];
                     nums[zeroPointer] = nums[nonZeroPointer];
-                    nums[nonZeroPointer]= temp;
+                    nums[nonZeroPointer] = temp;
                     zeroPointer++;
                 }
             }
         }
-    }
-
-
-    public boolean isPalindrome(String s) {
-        int rightPointer = 0;
-        int leftPointer = s.length() - 1;
-        char[] letters = s.toLowerCase().toCharArray();
-
-        while(rightPointer < leftPointer) {
-            if (!isAlphaNumeric(letters[rightPointer])) {
-                rightPointer++;
-            } else if(!isAlphaNumeric(letters[leftPointer])) {
-                leftPointer--;
-            } else if (letters[rightPointer] != letters[leftPointer]) {
-                return false;
-            } else {
-                rightPointer++;
-                leftPointer--;
-            }
-        }
-
-        return true;
     }
 
     public static boolean isAlphaNumeric(char x) {
@@ -116,10 +96,10 @@ public class Main {
         int sourcePtr = 0;
         int targetPtr = 0;
 
-        while(sourcePtr < sourceArray.length) {
+        while (sourcePtr < sourceArray.length) {
             if (sourceArray[sourcePtr] != targetArray[targetPtr]) {
                 if (counter != 0) return false;
-                counter ++;
+                counter++;
             } else {
                 sourcePtr++;
             }
@@ -127,24 +107,6 @@ public class Main {
             targetPtr++;
         }
 
-
-        return true;
-    }
-
-    public boolean validPalindrome(String s) {
-        char[] letters = s.toCharArray();
-
-        int leftIndex = 0;
-        int rightIndex = letters.length - 1;
-
-        while(leftIndex < rightIndex) {
-            if (letters[leftIndex] != letters[rightIndex]) {
-                return checkPalindrome(leftIndex, rightIndex - 1, letters) || checkPalindrome(leftIndex + 1, rightIndex, letters);
-            } else {
-                rightIndex--;
-                leftIndex++;
-            }
-        }
 
         return true;
     }
@@ -160,10 +122,49 @@ public class Main {
         return true;
     }
 
+    public boolean isPalindrome(String s) {
+        int rightPointer = 0;
+        int leftPointer = s.length() - 1;
+        char[] letters = s.toLowerCase().toCharArray();
+
+        while (rightPointer < leftPointer) {
+            if (!isAlphaNumeric(letters[rightPointer])) {
+                rightPointer++;
+            } else if (!isAlphaNumeric(letters[leftPointer])) {
+                leftPointer--;
+            } else if (letters[rightPointer] != letters[leftPointer]) {
+                return false;
+            } else {
+                rightPointer++;
+                leftPointer--;
+            }
+        }
+
+        return true;
+    }
+
+    public boolean validPalindrome(String s) {
+        char[] letters = s.toCharArray();
+
+        int leftIndex = 0;
+        int rightIndex = letters.length - 1;
+
+        while (leftIndex < rightIndex) {
+            if (letters[leftIndex] != letters[rightIndex]) {
+                return checkPalindrome(leftIndex, rightIndex - 1, letters) || checkPalindrome(leftIndex + 1, rightIndex, letters);
+            } else {
+                rightIndex--;
+                leftIndex++;
+            }
+        }
+
+        return true;
+    }
+
     public void nextPermutation(int[] nums) {
         for (int i = nums.length - 1; i > 0; i--) {
-            if (nums[i] > nums[i-1]) {
-                nextPermutationReorder(i-1, nums);
+            if (nums[i] > nums[i - 1]) {
+                nextPermutationReorder(i - 1, nums);
                 return;
             }
         }
@@ -172,7 +173,7 @@ public class Main {
     }
 
     private void nextPermutationReverseArray(int startIndex, int[] nums) {
-        for(int i = startIndex, j = nums.length -1; i < j; i++, j--) {
+        for (int i = startIndex, j = nums.length - 1; i < j; i++, j--) {
             swap(i, j, nums);
         }
     }
@@ -181,7 +182,7 @@ public class Main {
         int swapIndex = index + 1;
         int minDifference = Integer.MAX_VALUE;
 
-        for(int i = nums.length - 1; i > index; i--) {
+        for (int i = nums.length - 1; i > index; i--) {
             int difference = nums[i] - nums[index];
             if (difference > 0 && difference < minDifference) {
                 minDifference = difference;
@@ -260,10 +261,9 @@ public class Main {
         return maxSubstringLength;
     }
 
-    Queue<Character> buffer = new LinkedList<>();
     public int read(char[] buf, int n) {
         int index = 0, read = 4;
-        while(index < n && read == 4) {
+        while (index < n && read == 4) {
             char[] tempBuf = new char[4];
             read = read4(tempBuf);
             for (int i = 0; i < read && index < n; i++, index++) {
@@ -276,7 +276,7 @@ public class Main {
     public void readFromBuffer(char[] buf, int n) {
         int index = 0;
         int read = 4;
-        for (;index < n; index++) {
+        for (; index < n; index++) {
             if (buffer.isEmpty()) {
                 read = fillTheBuffer();
                 if (read == 0)
@@ -306,16 +306,16 @@ public class Main {
         String zeros = "";
         for (int i = num2.length() - 1; i >= 0; i--) {
             int rem = 0;
-            if (i != num2.length() -1) zeros = "0" + zeros;
+            if (i != num2.length() - 1) zeros = "0" + zeros;
 
             StringBuilder stepResult = new StringBuilder(zeros);
             for (int j = num1.length() - 1; j >= 0; j--) {
                 int a = getInt(num2.charAt(i));
                 int b = getInt(num1.charAt(j));
-                int result = (a*b)+rem;
+                int result = (a * b) + rem;
 
-                int digit = result%10;
-                rem = result/10;
+                int digit = result % 10;
+                rem = result / 10;
                 stepResult.insert(0, digit);
             }
             if (rem != 0)
@@ -386,11 +386,11 @@ public class Main {
         fromRight[nums.length - 1] = 1;
 
         for (int i = 0; i < nums.length - 1; i++) {
-            fromLeft[i+1] = nums[i] * fromLeft[i];
+            fromLeft[i + 1] = nums[i] * fromLeft[i];
         }
 
         for (int i = nums.length - 1; i > 0; i--) {
-            fromRight[i-1] = nums[i] * fromRight[i];
+            fromRight[i - 1] = nums[i] * fromRight[i];
         }
 
         for (int i = 0; i < nums.length; i++) {
@@ -438,7 +438,7 @@ public class Main {
     }
 
     private boolean checkStringContains(int[] sFreq, int[] tFreq) {
-        for (int i = 0; i < 256 ;i++) {
+        for (int i = 0; i < 256; i++) {
             if (sFreq[i] < tFreq[i])
                 return false;
         }
@@ -504,7 +504,7 @@ public class Main {
             char current = s.charAt(0);
             if (current == '0')
                 s = s.substring(1);
-            else if(isNumber(current))
+            else if (isNumber(current))
                 return s;
             else
                 return "0";
@@ -528,13 +528,13 @@ public class Main {
 
     private String removeSign(String s) {
         char firstNonWhiteSpaceChar = s.charAt(0);
-        if(isSign(firstNonWhiteSpaceChar))
+        if (isSign(firstNonWhiteSpaceChar))
             return s.substring(1);
         return s;
     }
 
     private boolean isSign(char x) {
-        return  x == '-' || x == '+';
+        return x == '-' || x == '+';
     }
 
     private boolean isNumberPositive(char x) {
@@ -547,7 +547,7 @@ public class Main {
 
     public String validIPAddress(String IP) {
         String ipv4 = "([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])";
-        String pattern = "^("+ipv4+"\\.){3}"+ipv4+"$";
+        String pattern = "^(" + ipv4 + "\\.){3}" + ipv4 + "$";
         Pattern patternX = Pattern.compile(pattern);
         Matcher matcher = patternX.matcher(IP);
 
@@ -555,7 +555,7 @@ public class Main {
             return "IPv4";
 
         String ipv6 = "([0-9a-fA-F]{1,4})";
-        pattern = "^("+ipv6+"\\:){7}"+ipv6+"$";
+        pattern = "^(" + ipv6 + "\\:){7}" + ipv6 + "$";
         Pattern patternY = Pattern.compile(pattern);
         matcher = patternY.matcher(IP);
 
@@ -585,7 +585,7 @@ public class Main {
 
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         // remove numbers from 0-m to m-(m+n)
-        for (int i = m-1, j = m + n - 1; i >= 0; i--, j--) {
+        for (int i = m - 1, j = m + n - 1; i >= 0; i--, j--) {
             nums1[j] = nums1[i];
         }
 
@@ -648,14 +648,14 @@ public class Main {
                     continue;
                 }
 
-                while(low <= high) {
+                while (low <= high) {
                     int mid = (low + high) / 2;
 
                     int item = nums[mid];
 
                     if (item < target) {
                         low = mid + 1;
-                    } else if (item > target){
+                    } else if (item > target) {
                         high = mid - 1;
                     } else {
                         groups.add(result);

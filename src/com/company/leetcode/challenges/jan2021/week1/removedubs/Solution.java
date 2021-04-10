@@ -30,23 +30,6 @@ public class Solution {
         System.out.println("**********************");
     }
 
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        public ListNode() {
-        }
-
-        public ListNode(int val) {
-            this.val = val;
-        }
-
-        public ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
     // The list is guaranteed to be sorted in ascending order.
     // -100 <= Node.val <= 100
     public ListNode deleteDuplicates(ListNode head) {
@@ -75,5 +58,22 @@ public class Solution {
         }
 
         return resultHead.next;
+    }
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+
+        public ListNode() {
+        }
+
+        public ListNode(int val) {
+            this.val = val;
+        }
+
+        public ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
     }
 }

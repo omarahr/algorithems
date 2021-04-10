@@ -5,6 +5,7 @@ public class Solution {
         Solution solution = new Solution();
         System.out.println(solution.backspaceCompare("a#c", "b"));
     }
+
     public boolean backspaceCompare(String S, String T) {
         return convert(S.toCharArray()).equals(convert(T.toCharArray()));
     }

@@ -4,6 +4,12 @@ import java.util.Arrays;
 
 public class Solution {
 
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.maxOperations(new int[]{1, 2, 3, 4}, 5));
+        System.out.println(solution.maxOperations(new int[]{3, 1, 3, 4, 3}, 6));
+    }
+
     public int maxOperations(int[] nums, int k) {
         Arrays.sort(nums);
         int count = 0;
@@ -23,11 +29,5 @@ public class Solution {
         }
 
         return count;
-    }
-
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        System.out.println(solution.maxOperations(new int[]{1, 2, 3, 4}, 5));
-        System.out.println(solution.maxOperations(new int[]{3, 1, 3, 4, 3}, 6));
     }
 }

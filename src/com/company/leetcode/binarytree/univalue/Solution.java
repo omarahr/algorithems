@@ -3,6 +3,10 @@ package com.company.leetcode.binarytree.univalue;
 public class Solution {
 
 
+    public static void main(String[] args) {
+
+    }
+
     public int countUnivalSubtrees(TreeNode root) {
         int[] result = uniValSubTree(root);
         return result[0];
@@ -35,27 +39,26 @@ public class Solution {
             boolean bothSubTreesUniSubTrees = right[1] == 1 && left[1] == 1;
             boolean valuesMatch = root.val == root.left.val && root.val == root.right.val;
             if (bothSubTreesUniSubTrees && valuesMatch)
-                return new int[]{right[0]+left[0]+1, 1};
-            return new int[]{right[0]+left[0], 0};
+                return new int[]{right[0] + left[0] + 1, 1};
+            return new int[]{right[0] + left[0], 0};
         }
     }
-
-
-
 
     public static class TreeNode {
         int val;
         TreeNode left, right;
-        TreeNode() {}
-        TreeNode(int val) {this.val = val;}
+
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
         TreeNode(int val, TreeNode left, TreeNode right) {
             this.val = val;
             this.left = left;
             this.right = right;
         }
-    }
-
-    public static void main(String[] args) {
-
     }
 }

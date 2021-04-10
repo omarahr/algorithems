@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Main {
+    private static HashMap<Node, Node> visitedNodes = new HashMap<>();
+
     public static void main(String[] args) {
         Main main = new Main();
         ListNode a = new ListNode(1);
@@ -20,27 +22,6 @@ public class Main {
         main.reorderList(a);
 
         System.out.println(a.next);
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-        ListNode() {}
-        ListNode(int val) {this.val = val;}
-        ListNode(int val, ListNode next) {this.val = val; this.next = next;}
-
-    }
-
-    public static class Node {
-        int val;
-        Node next;
-        Node random;
-
-        public Node(int val) {
-            this.val = val;
-            this.next = null;
-            this.random = null;
-        }
     }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
@@ -62,7 +43,7 @@ public class Main {
             pointer = pointer.next;
 
             firstNumber = getNext(firstNumber);
-            secondNumber= getNext(secondNumber);
+            secondNumber = getNext(secondNumber);
         }
 
         return result == pointer ? new ListNode(0) : result.next;
@@ -119,7 +100,6 @@ public class Main {
         return node == null;
     }
 
-
     public Node copyRandomList(Node head) {
         if (head == null) return null;
 
@@ -157,9 +137,8 @@ public class Main {
         return result.next;
     }
 
-    private static HashMap<Node, Node> visitedNodes = new HashMap<>();
     public Node copyRandomListV2(Node head) {
-        if(head == null)
+        if (head == null)
             return null;
 
         if (visitedNodes.containsKey(head))
@@ -188,7 +167,7 @@ public class Main {
             ListNode rear = indexedList.get(j);
             ListNode front = indexedList.get(i);
 
-            if (i + 1== j) {
+            if (i + 1 == j) {
                 rear.next = null;
                 continue;
             } else if (i == j) {
@@ -197,6 +176,36 @@ public class Main {
                 rear.next = front.next;
                 front.next = rear;
             }
+        }
+    }
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
+
+    }
+
+    public static class Node {
+        int val;
+        Node next;
+        Node random;
+
+        public Node(int val) {
+            this.val = val;
+            this.next = null;
+            this.random = null;
         }
     }
 

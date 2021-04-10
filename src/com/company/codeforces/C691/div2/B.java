@@ -10,7 +10,7 @@ public class B {
 
         int n = Integer.parseInt(br.readLine());
 
-        int sum = n % 2 == 0 ? (n/2 +1)*(n/2 +1) : 2*(n/2 +1)*(n/2+2);
+        int sum = n % 2 == 0 ? (n / 2 + 1) * (n / 2 + 1) : 2 * (n / 2 + 1) * (n / 2 + 2);
 
         pw.println(sum);
 

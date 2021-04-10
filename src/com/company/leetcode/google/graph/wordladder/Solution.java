@@ -4,17 +4,18 @@ import java.util.*;
 
 public class Solution {
     public static void main(String[] args) {
-        int result = ladderLength("hit", "cog", Arrays.asList("hot","dot","dog","lot","log"));
+        int result = ladderLength("hit", "cog", Arrays.asList("hot", "dot", "dog", "lot", "log"));
         System.out.println(result);
     }
+
     public static int ladderLength(String beginWord, String endWord, List<String> wordList) {
         List<List<Integer>> graph = new ArrayList<>();
-        for(int i = 0; i < wordList.size(); i++) graph.add(new ArrayList<>());
+        for (int i = 0; i < wordList.size(); i++) graph.add(new ArrayList<>());
 
 
         for (int i = 0; i < wordList.size(); i++) {
             for (int j = i + 1; j < wordList.size(); j++) {
-                if(differenceIsOne(wordList.get(i), wordList.get(j))) {
+                if (differenceIsOne(wordList.get(i), wordList.get(j))) {
                     graph.get(i).add(j);
                     graph.get(j).add(i);
                 }
@@ -63,7 +64,7 @@ public class Solution {
         char[] str2 = w2.toCharArray();
 
         int counter = 0;
-        for(int i = 0; i < str1.length; i++) {
+        for (int i = 0; i < str1.length; i++) {
             if (str1[i] != str2[i])
                 counter++;
             if (counter > 1)

@@ -4,24 +4,6 @@ package com.company.leetcode.binarytree.serialize;
 import java.util.*;
 
 public class Codec {
-    public static class TreeNode {
-        int val;
-        TreeNode left, right;
-
-        public TreeNode(int val) {
-            this.val = val;
-        }
-
-        @Override
-        public String toString() {
-            return "TreeNode{" +
-                    "val=" + val +
-                    ", left=" + left +
-                    ", right=" + right +
-                    '}';
-        }
-    }
-
     public static void main(String[] args) {
         TreeNode a = new TreeNode(1);
         TreeNode b = new TreeNode(2);
@@ -80,12 +62,12 @@ public class Codec {
 
             if (current.left != null) {
                 queue.add(current.left);
-                index.add(2*currentIndex);
+                index.add(2 * currentIndex);
             }
 
             if (current.right != null) {
                 queue.add(current.right);
-                index.add(2*currentIndex + 1);
+                index.add(2 * currentIndex + 1);
             }
         }
 
@@ -117,8 +99,8 @@ public class Codec {
             TreeNode current = queue.poll();
             int currentIndex = idxQueue.poll();
 
-            int leftIndex = 2*currentIndex;
-            int rightIndex = 2*currentIndex + 1;
+            int leftIndex = 2 * currentIndex;
+            int rightIndex = 2 * currentIndex + 1;
             if (idxMap.containsKey(leftIndex)) {
                 TreeNode left = new TreeNode(idxMap.get(leftIndex));
                 current.left = left;
@@ -136,5 +118,23 @@ public class Codec {
         }
 
         return root;
+    }
+
+    public static class TreeNode {
+        int val;
+        TreeNode left, right;
+
+        public TreeNode(int val) {
+            this.val = val;
+        }
+
+        @Override
+        public String toString() {
+            return "TreeNode{" +
+                    "val=" + val +
+                    ", left=" + left +
+                    ", right=" + right +
+                    '}';
+        }
     }
 }

@@ -2,14 +2,6 @@ package com.company.leetcode.google.arraysandstrings.mergeksortedlists;
 
 public class Solution {
 
-    public static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(){}
-        ListNode(int val) {this.val = val;}
-        ListNode(int val, ListNode next) {this.val = val; this.next = next;}
-    }
-
     public static void main(String[] args) {
         Solution solution = new Solution();
 
@@ -85,5 +77,22 @@ public class Solution {
             }
         }
         return head.next;
+    }
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
     }
 }

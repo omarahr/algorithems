@@ -3,6 +3,15 @@ package com.company.leetcode.challenges.jan2021.week4.concatinationofbinarynumbe
 public class Solution {
 
 
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.concatenatedBinary(1));
+        System.out.println(solution.concatenatedBinary(3));
+        System.out.println(solution.concatenatedBinary(12));
+        System.out.println(solution.concatenatedBinary(100));
+        System.out.println(solution.concatenatedBinary(100000));
+    }
+
     public int concatenatedBinary(int n) {
         long modulo = 1000000007L;
         StringBuilder sb = new StringBuilder();
@@ -19,15 +28,5 @@ public class Solution {
         }
 
         return (int) (result % (modulo));
-    }
-
-
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        System.out.println(solution.concatenatedBinary(1));
-        System.out.println(solution.concatenatedBinary(3));
-        System.out.println(solution.concatenatedBinary(12));
-        System.out.println(solution.concatenatedBinary(100));
-        System.out.println(solution.concatenatedBinary(100000));
     }
 }

@@ -6,8 +6,8 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(solution.numRescueBoats(new int[]{2,1}, 3));
-        System.out.println(solution.numRescueBoats(new int[]{3,2,2,1}, 3));
+        System.out.println(solution.numRescueBoats(new int[]{2, 1}, 3));
+        System.out.println(solution.numRescueBoats(new int[]{3, 2, 2, 1}, 3));
         System.out.println(solution.numRescueBoats(new int[]{3, 5, 3, 4}, 5));
     }
 

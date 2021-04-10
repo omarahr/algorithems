@@ -15,7 +15,7 @@ public class Solution {
     }
 
     private boolean constructWord(int index, String s, List<String> dict, boolean[] visited) {
-        if (index == s.length()){
+        if (index == s.length()) {
             return true;
         }
 

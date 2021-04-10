@@ -2,17 +2,8 @@ package com.company.algoexpert.binarytree.binarytreediameter;
 
 public class BinaryTreeDiameter {
 
-    static class BinaryTree {
-        public int value;
-        public BinaryTree left = null;
-        public BinaryTree right = null;
-
-        public BinaryTree(int value) {
-            this.value = value;
-        }
-    }
-
     private static int max;
+
     public int binaryTreeDiameter(BinaryTree tree) {
         if (tree == null)
             return 0;
@@ -23,7 +14,6 @@ public class BinaryTreeDiameter {
 
         return max;
     }
-
 
     private int dfs(BinaryTree tree) {
         if (tree == null)
@@ -38,12 +28,21 @@ public class BinaryTreeDiameter {
         int result = 1 + Math.max(leftLen, rightLen);
 
         int withRight = tree.right == null ? 0 : 1 + rightLen;
-        int withLeft = tree.left == null ? 0: 1 + leftLen;
-
+        int withLeft = tree.left == null ? 0 : 1 + leftLen;
 
 
         max = Math.max(max, Math.max(result, withLeft + withRight));
 
         return result;
+    }
+
+    static class BinaryTree {
+        public int value;
+        public BinaryTree left = null;
+        public BinaryTree right = null;
+
+        public BinaryTree(int value) {
+            this.value = value;
+        }
     }
 }

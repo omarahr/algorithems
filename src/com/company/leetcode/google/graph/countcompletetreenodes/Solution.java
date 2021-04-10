@@ -4,7 +4,7 @@ public class Solution {
 
 
     public int countNodes(TreeNode root) {
-        if(root == null)
+        if (root == null)
             return 0;
 
         int depth = computeDepth(root);
@@ -33,7 +33,7 @@ public class Solution {
                 right = pivot;
             } else {
                 node = node.right;
-                left =pivot;
+                left = pivot;
             }
         }
         return node != null;
@@ -41,7 +41,7 @@ public class Solution {
 
     private int computeDepth(TreeNode node) {
         int depth = 0;
-        while(node.left != null) {
+        while (node.left != null) {
             node = node.left;
             depth++;
         }
@@ -52,8 +52,14 @@ public class Solution {
         int val;
         TreeNode left;
         TreeNode right;
-        TreeNode() {}
-        TreeNode(int val) { this.val = val; }
+
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
         TreeNode(int val, TreeNode left, TreeNode right) {
             this.val = val;
             this.left = left;

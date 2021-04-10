@@ -7,7 +7,7 @@ public class Solution {
 
 
     public static void main(String[] args) {
-        String[] filePaths = new String[] {
+        String[] filePaths = new String[]{
                 "mockito-kotlin/src/main/kotlin/com/nhaarman/mockitokotlin2/ArgumentCaptor.kt",
                 "mockito-kotlin/src/main/kotlin/com/nhaarman/mockitokotlin2/BDDMockito.kt",
                 "mockito-kotlin/src/main/kotlin/com/nhaarman/mockitokotlin2/KStubbing.kt",
@@ -36,15 +36,15 @@ public class Solution {
 
         StringMatcher matcher = new StringMatcher(filePaths);
 
-        String[] tests = new String[] {
-            "mockKotVS",
-            "mockKotlinVS",
-            "test",
-            "testEq",
-            "coroutine",
+        String[] tests = new String[]{
+                "mockKotVS",
+                "mockKotlinVS",
+                "test",
+                "testEq",
+                "coroutine",
         };
 
-        for(String test : tests) {
+        for (String test : tests) {
             List<String> results = matcher.getMatchingResults(test);
             printResults(test, results);
         }

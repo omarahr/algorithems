@@ -14,24 +14,6 @@ public class Solution {
         }
     }
 
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        public ListNode() {
-        }
-
-        public ListNode(int val) {
-            this.val = val;
-        }
-
-        public ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
-
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode a = l1;
         ListNode b = l2;
@@ -64,5 +46,22 @@ public class Solution {
         }
 
         return head.next;
+    }
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+
+        public ListNode() {
+        }
+
+        public ListNode(int val) {
+            this.val = val;
+        }
+
+        public ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
     }
 }

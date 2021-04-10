@@ -4,27 +4,18 @@ import java.util.*;
 
 public class Main {
 
+    private static List<String> paths = new ArrayList<>();
+    private static TreeNode answer = null;
+    private static int maxSum = Integer.MIN_VALUE;
+    private static int max = 0;
+
     public static void main(String[] args) {
         Main main = new Main();
 
-        String[] words = new String[]{"abc","ab"};
-        int[][] map = new int[][] {{1, 1}, {0,1}};
+        String[] words = new String[]{"abc", "ab"};
+        int[][] map = new int[][]{{1, 1}, {0, 1}};
 
         System.out.println(main.alienOrder(words));
-    }
-
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode() {}
-        TreeNode(int val) {this.val = val;}
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
     }
 
     public List<String> binaryTreePaths(TreeNode root) {
@@ -33,7 +24,6 @@ public class Main {
         return paths;
     }
 
-    private static List<String> paths = new ArrayList<>();
     private void dfs(TreeNode root, String path) {
         if (root == null) return;
 
@@ -70,7 +60,7 @@ public class Main {
 
         return containsTreeNode(root.right, p) | containsTreeNode(root.left, p);
     }
-    private static TreeNode answer = null;
+
     private boolean recurseTree(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null) return false;
 
@@ -117,7 +107,6 @@ public class Main {
         return levelGroups;
     }
 
-    private static int maxSum = Integer.MIN_VALUE;
     public int maxPathSum(TreeNode root) {
         traversBinaryTree(root);
         return maxSum;
@@ -230,36 +219,10 @@ public class Main {
 
         visited[i][j] = true;
 
-        dfs(i+1, j, visited, grid);
-        dfs(i-1, j, visited, grid);
-        dfs(i, j+1, visited, grid);
-        dfs(i, j-1, visited, grid);
-    }
-
-
-    public static class Node {
-        char val;
-        Set<Node> children;
-        int inBound;
-
-        Node(char val) {
-            this.val = val;
-            inBound = 0;
-            children = new HashSet<>();
-        }
-
-        void addItem(Node child) {
-            children.add(child);
-        }
-
-        void increaseInbound() {
-            this.inBound++;
-        }
-
-        void decreaseInbound() {
-            this.inBound--;
-        }
-
+        dfs(i + 1, j, visited, grid);
+        dfs(i - 1, j, visited, grid);
+        dfs(i, j + 1, visited, grid);
+        dfs(i, j - 1, visited, grid);
     }
 
     public String alienOrder(String[] words) {
@@ -272,7 +235,7 @@ public class Main {
         HashMap<Character, Node> map = new HashMap<>();
 
 
-        while(!dictionary.isEmpty()) {
+        while (!dictionary.isEmpty()) {
             List<List<String>> temp = new ArrayList<>();
             for (List<String> group : dictionary) {
                 if (group.size() == 1) {
@@ -284,7 +247,7 @@ public class Main {
 
                 for (int i = 0; i < group.size() - 1; i++) {
                     char from = group.get(i).charAt(0);
-                    char to = group.get(i+1).charAt(0);
+                    char to = group.get(i + 1).charAt(0);
                     boolean isCharacterDifferent = from != to;
 
                     if (!map.containsKey(from)) {
@@ -304,13 +267,13 @@ public class Main {
                 }
 
                 List<List<String>> filteredGroups = new ArrayList<>();
-                for(int i = 0; i < 26; i++) filteredGroups.add(new ArrayList<>());
+                for (int i = 0; i < 26; i++) filteredGroups.add(new ArrayList<>());
                 for (String word : group) {
                     char from = word.charAt(0);
                     if (word.length() > 1) {
-                        filteredGroups.get(from-'a').add(word.substring(1));
-                    } else if (filteredGroups.get(from - 'a').size() != 0){
-                         return "";
+                        filteredGroups.get(from - 'a').add(word.substring(1));
+                    } else if (filteredGroups.get(from - 'a').size() != 0) {
+                        return "";
                     }
                 }
 
@@ -323,7 +286,6 @@ public class Main {
 
             dictionary = temp;
         }
-
 
 
         Queue<Node> queue = new LinkedList<>();
@@ -361,15 +323,13 @@ public class Main {
         return answer.toString();
     }
 
-
-
     public int shortestDistance(int[][] grid) {
         int height = grid.length;
         int width = grid[0].length;
 
         List<Pair> buildings = new ArrayList<>();
         for (int i = 0; i < height; i++) {
-            for(int j = 0; j < width; j++) {
+            for (int j = 0; j < width; j++) {
                 if (grid[i][j] == 1) {
                     buildings.add(new Pair(i, j, 0));
                 }
@@ -383,7 +343,7 @@ public class Main {
                     int[][] result = shortestDistance(i, j, grid);
                     int sum = 0;
                     boolean invalid = false;
-                    for (Pair building: buildings) {
+                    for (Pair building : buildings) {
                         int distanceToBuilding = result[building.x][building.y];
                         if (distanceToBuilding == 0)
                             invalid = true;
@@ -398,15 +358,6 @@ public class Main {
         }
 
         return min == Integer.MAX_VALUE ? -1 : min;
-    }
-
-    public static class Pair {
-        int x, y, distance;
-        Pair(int x, int y, int distance) {
-            this.x = x;
-            this.y = y;
-            this.distance = distance;
-        }
     }
 
     public int[][] shortestDistance(int x, int y, int[][] grid) {
@@ -442,7 +393,6 @@ public class Main {
         return distance;
     }
 
-    private static int max = 0;
     public int diameterOfBinaryTree(TreeNode root) {
         max = 0;
         diameterOfBinaryTreeTraversal(root);
@@ -457,7 +407,6 @@ public class Main {
             return 0;
 
 
-
         int leftLength = diameterOfBinaryTreeTraversal(root.left);
         int rightLength = diameterOfBinaryTreeTraversal(root.right);
 
@@ -470,7 +419,59 @@ public class Main {
         return result;
     }
 
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
 
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+
+    public static class Node {
+        char val;
+        Set<Node> children;
+        int inBound;
+
+        Node(char val) {
+            this.val = val;
+            inBound = 0;
+            children = new HashSet<>();
+        }
+
+        void addItem(Node child) {
+            children.add(child);
+        }
+
+        void increaseInbound() {
+            this.inBound++;
+        }
+
+        void decreaseInbound() {
+            this.inBound--;
+        }
+
+    }
+
+    public static class Pair {
+        int x, y, distance;
+
+        Pair(int x, int y, int distance) {
+            this.x = x;
+            this.y = y;
+            this.distance = distance;
+        }
+    }
 
 
 }

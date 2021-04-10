@@ -1,6 +1,5 @@
 package com.company.leetcode.facebook.dynamicprogramming.checksubarraysum;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,7 +19,7 @@ public class Solution {
 
         if (k == 0) {
             for (int i = 0; i < nums.length - 1; i++) {
-                if (nums[i] == 0 && nums[i+1] == 0)
+                if (nums[i] == 0 && nums[i + 1] == 0)
                     return true;
             }
 
@@ -34,7 +33,7 @@ public class Solution {
         // [[0],[1],[2] - [0]]
 
         int[] preSum = new int[nums.length];
-        preSum[0] =  nums[0];
+        preSum[0] = nums[0];
         for (int i = 1; i < preSum.length; i++) {
             preSum[i] = nums[i] + preSum[i - 1];
             if (preSum[i] % k == 0)
