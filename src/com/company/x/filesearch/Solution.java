@@ -1,4 +1,4 @@
-package com.company.palantir.filesearch;
+package com.company.x.filesearch;
 
 import java.util.ArrayList;
 import java.util.List;
